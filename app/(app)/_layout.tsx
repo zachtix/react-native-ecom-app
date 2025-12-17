@@ -8,6 +8,7 @@ const _layout = () => {
   return (
     <Tabs
       screenOptions={{
+        tabBarShowLabel: false,
         headerShown: false,
         tabBarStyle: {
           backgroundColor: theme.colors.background,
@@ -23,7 +24,7 @@ const _layout = () => {
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="home-outline" size={22} color={color} />
+            <Ionicons name="home-outline" size={24} color={color} />
           ),
         }}
       />
@@ -32,7 +33,7 @@ const _layout = () => {
         options={{
           title: "Notifications",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="notifications-outline" size={22} color={color} />
+            <Ionicons name="notifications-outline" size={24} color={color} />
           ),
         }}
       />
@@ -41,7 +42,7 @@ const _layout = () => {
         options={{
           title: "Orders",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="receipt-outline" size={22} color={color} />
+            <Ionicons name="receipt-outline" size={24} color={color} />
           ),
         }}
       />
@@ -50,7 +51,7 @@ const _layout = () => {
         options={{
           title: "Profile",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="person-outline" size={22} color={color} />
+            <Ionicons name="person-outline" size={24} color={color} />
           ),
         }}
       />
