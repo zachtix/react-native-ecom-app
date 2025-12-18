@@ -1,3 +1,4 @@
+import { useTheme } from "@/theme/ThemeProvider";
 import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import ProductCard from "./ProductCard";
@@ -9,8 +10,8 @@ const products = [
       "https://static.vecteezy.com/system/resources/thumbnails/023/522/781/small/school-backpack-cutout-png.png",
     link: "",
     price: 100,
-    price_discount: 110,
-    favarite: false,
+    price_discount: 0,
+    favarite: true,
   },
   {
     name: "Bag2",
@@ -18,8 +19,8 @@ const products = [
       "https://static.vecteezy.com/system/resources/thumbnails/023/522/781/small/school-backpack-cutout-png.png",
     link: "",
     price: 100,
-    price_discount: 110,
-    favarite: true,
+    price_discount: 0,
+    favarite: false,
   },
   {
     name: "Bag3",
@@ -27,7 +28,7 @@ const products = [
       "https://static.vecteezy.com/system/resources/thumbnails/023/522/781/small/school-backpack-cutout-png.png",
     link: "",
     price: 100,
-    price_discount: 110,
+    price_discount: 0,
     favarite: false,
   },
   {
@@ -36,19 +37,24 @@ const products = [
       "https://static.vecteezy.com/system/resources/thumbnails/023/522/781/small/school-backpack-cutout-png.png",
     link: "",
     price: 100,
-    price_discount: 110,
+    price_discount: 0,
     favarite: false,
   },
 ];
 
-const TopSelling = () => {
+const NewProducts = () => {
+  const { theme } = useTheme();
   return (
     <View>
       <FlatList
         data={products}
         horizontal
         style={{ marginHorizontal: -24 }}
-        contentContainerStyle={[styles.itemContainer]}
+        contentContainerStyle={[
+          styles.itemContainer,
+          { paddingHorizontal: 24 },
+        ]}
+        showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.name}
         renderItem={({ item }) => (
           <ProductCard
@@ -70,8 +76,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 16,
-    paddingHorizontal: 24,
   },
 });
 
-export default TopSelling;
+export default NewProducts;

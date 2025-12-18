@@ -1,11 +1,5 @@
 import React from "react";
-import {
-    FlatList,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-} from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import CategorieItem from "./CategorieItem";
 
 const categories = [
@@ -43,39 +37,19 @@ const categories = [
 
 const Categories = () => {
   return (
-    <View style={[styles.displayContainer]}>
-      <View style={styles.headerDisplay}>
-        <Text style={[styles.title]}>Categories</Text>
-        <TouchableOpacity>
-          <Text style={[styles.subTitle]}>See All</Text>
-        </TouchableOpacity>
-      </View>
-      <FlatList
-        data={categories}
-        horizontal
-        contentContainerStyle={[styles.itemContainer]}
-        keyExtractor={(item) => item.label}
-        renderItem={({ item }) => (
-          <CategorieItem
-            label={item.label}
-            image={item.image}
-            link={item.link}
-          />
-        )}
-      />
-    </View>
+    <FlatList
+      data={categories}
+      horizontal
+      contentContainerStyle={[styles.itemContainer]}
+      keyExtractor={(item) => item.label}
+      renderItem={({ item }) => (
+        <CategorieItem label={item.label} image={item.image} link={item.link} />
+      )}
+    />
   );
 };
 
 const styles = StyleSheet.create({
-  displayContainer: { gap: 16 },
-  headerDisplay: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  title: { fontSize: 16, fontWeight: 700 },
-  subTitle: { fontSize: 16 },
   itemContainer: {
     flexDirection: "row",
     justifyContent: "space-between",

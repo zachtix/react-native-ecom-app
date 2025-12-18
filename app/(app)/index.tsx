@@ -1,12 +1,20 @@
 import BottomMenu from "@/components/BottomMenu";
 import Categories from "@/components/Categories";
+import NewProducts from "@/components/NewProducts";
 import TopSelling from "@/components/TopSelling";
 import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/theme/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
 import { Redirect } from "expo-router";
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -48,17 +56,40 @@ const index = () => {
           <Ionicons name="cart-outline" size={16} color={"white"} />
         </View>
       </View>
-      <View
-        style={[
-          styles.searchContainer,
-          { backgroundColor: theme.colors.backgroundSecondary },
-        ]}
-      >
-        <Ionicons name={"search"} size={16} />
-        <TextInput placeholder="Search" />
-      </View>
-      <Categories />
-      <TopSelling />
+      <ScrollView contentContainerStyle={[{ gap: 24, paddingHorizontal: 24 }]}>
+        <View
+          style={[
+            styles.searchContainer,
+            { backgroundColor: theme.colors.backgroundSecondary },
+          ]}
+        >
+          <Ionicons name={"search"} size={16} />
+          <TextInput placeholder="Search" />
+        </View>
+        <View style={styles.headerDisplay}>
+          <Text style={[styles.title]}>Categories</Text>
+          <TouchableOpacity>
+            <Text style={[styles.subTitle]}>See All</Text>
+          </TouchableOpacity>
+        </View>
+        <Categories />
+        <View style={styles.headerDisplay}>
+          <Text style={[styles.title]}>Top Selling</Text>
+          <TouchableOpacity>
+            <Text style={[styles.subTitle]}>See All</Text>
+          </TouchableOpacity>
+        </View>
+        <TopSelling />
+        <View style={styles.headerDisplay}>
+          <Text style={[styles.title, { color: theme.colors.primary }]}>
+            New In
+          </Text>
+          <TouchableOpacity>
+            <Text style={[styles.subTitle]}>See All</Text>
+          </TouchableOpacity>
+        </View>
+        <NewProducts />
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -66,7 +97,6 @@ const index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 24,
     gap: 24,
   },
   header: {
@@ -74,6 +104,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     height: 40,
+    paddingHorizontal: 24,
   },
   headerImage: {
     borderRadius: 99,
@@ -94,6 +125,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 18,
   },
+  headerDisplay: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  title: { fontSize: 16, fontWeight: 700 },
+  subTitle: { fontSize: 16 },
 });
 
 export default index;

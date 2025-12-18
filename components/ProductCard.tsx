@@ -52,7 +52,7 @@ const ProductCard = ({
               })}
             </Text>
             <Text
-              style={[styles.price_discount, { color: theme.colors.text50 }]}
+              style={[styles.price_discount, { color: theme.colors.text50,display:price_discount?"flex":"none" }]}
             >
               {price_discount.toLocaleString("en-US", {
                 style: "currency",
