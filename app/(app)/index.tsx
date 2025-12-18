@@ -63,20 +63,32 @@ const index = () => {
             { backgroundColor: theme.colors.backgroundSecondary },
           ]}
         >
-          <Ionicons name={"search"} size={16} />
-          <TextInput placeholder="Search" />
+          <Ionicons name={"search"} size={16} color={theme.colors.text} />
+          <TextInput
+            placeholder="Search"
+            placeholderTextColor={theme.colors.text}
+            style={[{ color: theme.colors.text }]}
+          />
         </View>
         <View style={styles.headerDisplay}>
-          <Text style={[styles.title]}>Categories</Text>
+          <Text style={[styles.title, { color: theme.colors.text }]}>
+            Categories
+          </Text>
           <TouchableOpacity>
-            <Text style={[styles.subTitle]}>See All</Text>
+            <Text style={[styles.subTitle, { color: theme.colors.text }]}>
+              See All
+            </Text>
           </TouchableOpacity>
         </View>
         <Categories />
         <View style={styles.headerDisplay}>
-          <Text style={[styles.title]}>Top Selling</Text>
+          <Text style={[styles.title, { color: theme.colors.text }]}>
+            Top Selling
+          </Text>
           <TouchableOpacity>
-            <Text style={[styles.subTitle]}>See All</Text>
+            <Text style={[styles.subTitle, { color: theme.colors.text }]}>
+              See All
+            </Text>
           </TouchableOpacity>
         </View>
         <TopSelling />
@@ -85,7 +97,9 @@ const index = () => {
             New In
           </Text>
           <TouchableOpacity>
-            <Text style={[styles.subTitle]}>See All</Text>
+            <Text style={[styles.subTitle, { color: theme.colors.text }]}>
+              See All
+            </Text>
           </TouchableOpacity>
         </View>
         <NewProducts />

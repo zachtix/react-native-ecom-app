@@ -35,24 +35,32 @@ const ProductCard = ({
           <Ionicons
             name={favarite ? "heart" : "heart-outline"}
             size={24}
-            color={favarite ? "red" : "black"}
+            color={favarite ? "red" : theme.colors.text}
           />
         </TouchableOpacity>
 
         <Image source={{ uri: image }} style={[styles.image]} />
         <View style={{ gap: 8, paddingHorizontal: 4 }}>
-          <Text style={[styles.name]}>{name}</Text>
+          <Text style={[styles.name, { color: theme.colors.text }]}>
+            {name}
+          </Text>
           <View
             style={{ flexDirection: "row", gap: 8, alignItems: "baseline" }}
           >
-            <Text style={[styles.price]}>
+            <Text style={[styles.price, { color: theme.colors.text }]}>
               {price.toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })}
             </Text>
             <Text
-              style={[styles.price_discount, { color: theme.colors.text50,display:price_discount?"flex":"none" }]}
+              style={[
+                styles.price_discount,
+                {
+                  color: theme.colors.text50,
+                  display: price_discount ? "flex" : "none",
+                },
+              ]}
             >
               {price_discount.toLocaleString("en-US", {
                 style: "currency",

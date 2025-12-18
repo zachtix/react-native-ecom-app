@@ -1,3 +1,4 @@
+import { useTheme } from "@/theme/ThemeProvider";
 import React from "react";
 import { FlatList, StyleSheet } from "react-native";
 import CategorieItem from "./CategorieItem";
@@ -36,6 +37,7 @@ const categories = [
 ];
 
 const Categories = () => {
+  const { theme } = useTheme();
   return (
     <FlatList
       data={categories}

@@ -14,7 +14,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const systemScheme = Appearance.getColorScheme();
   const [mode, setModeState] = useState<ThemeMode>(
     // systemScheme === "dark" ? "dark" : "light"
-    "light"
+    "dark"
   );
 
   useEffect(() => {

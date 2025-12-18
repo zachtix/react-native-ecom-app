@@ -2,12 +2,12 @@ import { useTheme } from "@/theme/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useMemo, useState } from "react";
 import {
-    Modal,
-    Pressable,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Modal,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 interface BottomMenuProps {
@@ -42,24 +42,35 @@ const BottomMenu = ({
           { backgroundColor: theme.colors.backgroundSecondary },
         ]}
       >
-        <Text style={styles.label}>{_label}</Text>
+        <Text style={[styles.label, { color: theme.colors.text }]}>
+          {_label}
+        </Text>
         <View>
-          <Ionicons name={"chevron-down-outline"} size={16} color={"black"} />
+          <Ionicons
+            name={"chevron-down-outline"}
+            size={16}
+            color={theme.colors.text}
+          />
         </View>
       </View>
-      <Modal visible={_open} transparent={true} animationType="slide" onRequestClose={()=>_setOpen(!_open)}>
+      <Modal
+        visible={_open}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => _setOpen(!_open)}
+      >
         <View
           style={{
             flex: 1,
             justifyContent: "flex-end",
-            backgroundColor:"rgba(0,0,0,0.5)"
+            backgroundColor: "rgba(0,0,0,0.5)",
           }}
         >
           <View
             style={{
               backgroundColor: "white",
-              borderTopStartRadius:20,
-              borderTopEndRadius:16,
+              borderTopStartRadius: 20,
+              borderTopEndRadius: 16,
               padding: 35,
               alignItems: "center",
               shadowColor: "#000",

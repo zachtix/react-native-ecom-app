@@ -33,11 +33,21 @@ const MENUS = [
     label: "Support",
     link: "",
   },
+  {
+    label: "Theme",
+    link: "",
+    onPress: "changeTheme",
+  },
 ];
 
 const profile = () => {
-  const { theme } = useTheme();
+  const { theme, setMode, mode } = useTheme();
   const { signIn, signOut, isSignedIn } = useAuth();
+  const handleAction = ({ action, value }: { action: string; value?: any }) => {
+    if (action === "changeTheme") {
+      setMode(mode === "dark" ? "light" : "dark");
+    }
+  };
   return (
     <SafeAreaView
       style={[
@@ -75,7 +85,9 @@ const profile = () => {
           contentContainerStyle={[styles.menuContainer]}
           keyExtractor={(item) => item.label}
           renderItem={({ item }) => (
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleAction({ action: item.onPress || "" })}
+            >
               <View
                 style={[
                   styles.menu,
@@ -85,7 +97,9 @@ const profile = () => {
                 ]}
               >
                 <Text style={[styles.menuText, { color: theme.colors.text }]}>
-                  {item.label}
+                  {item.label}{" "}
+                  {item.label === "Theme" &&
+                    (mode === "dark" ? "Light" : "Dark")}
                 </Text>
                 <Ionicons
                   name={"chevron-forward"}
